@@ -18,8 +18,6 @@ public class PG10 {
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.get("C:/Users/ggiovanella/eclipse-workspace/SeleniumTesting/src/paginaAlert.html");
-		// driver.manage().window().maximize();
-		// driver.findElement(By.linkText("this is a link")).click();
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e2) {
@@ -65,12 +63,6 @@ public class PG10 {
 
 		Set<String> s1 = driver.getWindowHandles();
 
-		Iterator<String> i1 = s1.iterator();
-		//
-		// while (i1.hasNext()) {
-		// String childWindow = i1.next();
-		// System.out.println(childWindow);
-		// }
 		for (String handle : s1) {
 			driver.switchTo().window(handle);
 		}
@@ -81,30 +73,19 @@ public class PG10 {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		System.out.println(i1);
-		// ----- PROBLEM ABOVE -----
-		driver.switchTo().window(i1.next());// does not find the other window
-		// driver.get("C:/Users/ggiovanella/eclipse-workspace/SeleniumTesting/src/alert.html");
+
 		WebElement link2 = driver.findElement(By.linkText("this is a link"));
 		builder.keyDown(Keys.LEFT_CONTROL).click(link2).keyUp(Keys.LEFT_CONTROL).build().perform();
 
 		s1 = driver.getWindowHandles();
 
-		i1 = s1.iterator();
-
-		// while (i1.hasNext()) {
-		// String childWindow = i1.next();
-		// System.out.println(childWindow);
-		// }
-		//
-		// driver.switchTo().window(i1);
 
 		for (String handle : s1) {
 			driver.switchTo().window(handle);
 		}
 
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
